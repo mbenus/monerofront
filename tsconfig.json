@@ -1,0 +1,21 @@
+﻿{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "module": "system",
+    "moduleResolution": "node",
+    "target": "es5",
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": false,
+    "noEmitOnError": true,
+    "removeComments": true,
+    "sourceMap": true,
+    "watch": true
+  },
+  "exclude": [
+    "node_modules"
+  ],
+  "include": [
+    "src/app/**/*",
+    "typings/index.d.ts"
+  ]
+}
