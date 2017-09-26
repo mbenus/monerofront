@@ -10,15 +10,19 @@ declare module 'vue/types/vue' {
         // computed properties
         stats: any
 
-        // methods 
-        getReadableTime(time : number)
+        // methods
+        showMe(): boolean
+        getFeeText(): string
+        getTotalFee(): string
+        getBlocksFound(): string
+        getReadableTime(time : number) : string
     }
 }
 
 const Pool = Vue.extend({
     mixins: [formatdata],
     template: `
-    <div class="network" v-if="showMe()">
+    <div class="pool" v-if="showMe()">
         <h3>Our Pool</h3>
         <div>
             <i class="fa fa-tachometer"></i>

@@ -21,17 +21,16 @@ const Users = Vue.extend({
         'userstats': UserStats
     },
     template: `
-    <div class="stats">
+    <div class="users">
         <div class="input-group">
             <input class="form-control" type="text" placeholder="Enter Your Address" id="txtAddress">
             <span class="input-group-btn">
                 <button class="btn btn-default" type="button" v-on:click="lookupAddress($event)">
-                    <span style="display: inline;"><i class="fa fa-search"></i>Lookup</span>
+                    <span><i class="fa fa-search"></i>Lookup</span>
                     <span style="display: none;"><i class="fa fa-refresh fa-spin"></i> Searching...</span>
                 </button>
             </span>
         </div>
-        <div id="addressError" style="display: none;"></div>
         <div v-if="showMe()">
             <userstats 
                 v-for="user in users" 

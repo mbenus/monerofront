@@ -5,16 +5,13 @@ import { formatdata } from "./../common/mixins"
 declare module 'vue/types/vue' {
     // Declare augmentation for Vue
     interface Vue {
-        //data properties
-        coinUnits: number
-        basehashUrl: string
+        //data propertiesS
         
         // computed properties
         stats: any
 
-        // methods 
-        getReadableHashRateString(difficulty: number)
-        formatTimestamp(timestamp: number)
+        // methods
+        showMe(): boolean
     }
 }
 

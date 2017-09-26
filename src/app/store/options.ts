@@ -4,13 +4,6 @@ import createPersistedState from 'vuex-persistedstate'
 import actions from "./actions"
 import mutations from "./mutations"
 
-// let users : User[] = [
-//     {
-//         xmraddress: "49gRw38h4CUserHfjTH4eifxXZRpDNRnDbUMqRkjktijxuqC1hvp5p2ARSSMiFjyEvdSJZEiSAkPM69YjNphyXzSfE13T6ucpDX",
-//         userstats: null
-//     }
-// ];
-
 // default state
 var appstate: IAppState = {
     stats : null,

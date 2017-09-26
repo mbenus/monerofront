@@ -2,3 +2,5 @@ dest
 node_modules
 package-lock.json
 src/css/poel.css
+src/**/*.js
+src/**/*.js.map

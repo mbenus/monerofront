@@ -20,39 +20,39 @@ const UserStats = Vue.extend({
     },
     mixins: [formatdata],
     template: `
-    <div class="stats" v-if="showMe()">
-        <div class="yourStats" style="display: block;">
+    <div class="userstats" v-if="showMe()">
+        <div>
             <i class="fa fa-key"></i>
             Address: 
-            <span id="yourAddressDisplay">{{user.xmraddress}}</span>
+            <span>{{user.xmraddress}}</span>
             <button class="btn btn-danger" type="button" v-on:click="deleteAddress($event)">
-                <span style="display: inline;"><i class="fa fa-trash"></i>Remove</span>
+                <span><i class="fa fa-trash"></i>Remove</span>
             </button>
         </div>
         <div>
             <i class="fa fa-bank"></i> 
             Pending Balance: 
-            <span id="yourPendingBalance">{{getReadableCoins(user.userstats.balnce)}}</span>
+            <span>{{getReadableCoins(user.userstats.balance)}}</span>
         </div>
         <div>
             <i class="fa fa-money"></i>
             Total Paid:
-            <span id="yourPaid">{{getReadableCoins(user.userstats.stats.paid)}}</span>
+            <span>{{getReadableCoins(user.userstats.stats.paid)}}</span>
         </div>
         <div>
             <i class="fa fa-clock-o"></i>
             Last Share Submitted: 
-            <span id="yourLastShare">{{formatTimestamp(user.userstats.stats.lastShare)}}</span>
+            <span>{{formatTimestamp(user.userstats.stats.lastShare)}}</span>
         </div>
         <div>
             <i class="fa fa-tachometer"></i> 
             Hash Rate: 
-            <span id="yourHashrateHolder">{{displayHashrate(user.userstats.stats.hashrate)}}</span>
+            <span>{{displayHashrate(user.userstats.stats.hashrate)}}</span>
         </div>
         <div>
             <i class="fa fa-cloud-upload"></i> 
             Total Hashes Submitted: 
-            <span id="yourHashes">{{user.userstats.stats.hashes}}</span>
+            <span>{{user.userstats.stats.hashes}}</span>
         </div>
         <payments :rawpayments2="user.userstats.payments"></payments>
     </div>`,
