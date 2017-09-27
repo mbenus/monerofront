@@ -24,11 +24,13 @@ const Home = Vue.extend({
         'pool': Pool
     },
     template: `
-        <div>
-            <h1>Home</h1>
-            <router-link to="/about">Ga naar About</router-link>
-            <network :stats="stats"></network>
-            <pool :stats="stats"></pool>
+        <div class="row">
+            <div class="col">
+                <network :stats="stats"></network>
+            </div>
+            <div class="col">
+                <pool :stats="stats"></pool>
+            </div>
         </div>`,
     computed: Vuex.mapState({
         stats: state => (<IAppState>state).stats,
