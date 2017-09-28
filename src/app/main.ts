@@ -20,7 +20,7 @@ const routes = [
     { path: "/", component: Home },
     { path: "/home", component: Home },
     { path: "/about", component: About },
-    { path: "/statistics", component: Statistics },
+    { path: "/balance", component: Statistics },
 ];
 
 const routerconfig = {

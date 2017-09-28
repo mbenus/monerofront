@@ -32,34 +32,56 @@ const UserStats = Vue.extend({
         <div>
             <i class="fa fa-bank"></i> 
             Pending Balance: 
-            <span>{{getReadableCoins(user.userstats.balance)}}</span>
+            <span>{{getReadableCoins(userstats.balance)}}</span>
         </div>
         <div>
             <i class="fa fa-money"></i>
             Total Paid:
-            <span>{{getReadableCoins(user.userstats.stats.paid)}}</span>
+            <span>{{getReadableCoins(userstats.paid)}}</span>
         </div>
         <div>
             <i class="fa fa-clock-o"></i>
             Last Share Submitted: 
-            <span>{{formatTimestamp(user.userstats.stats.lastShare)}}</span>
+            <span>{{formatTimestamp(userstats.lastShare)}}</span>
         </div>
         <div>
             <i class="fa fa-tachometer"></i> 
             Hash Rate: 
-            <span>{{displayHashrate(user.userstats.stats.hashrate)}}</span>
+            <span>{{displayHashrate(userstats.hashrate)}}</span>
         </div>
         <div>
             <i class="fa fa-cloud-upload"></i> 
             Total Hashes Submitted: 
-            <span>{{user.userstats.stats.hashes}}</span>
+            <span>{{userstats.hashes}}</span>
         </div>
         <payments :rawpayments2="user.userstats.payments"></payments>
     </div>`,
     props : ['user'],
+    computed: {
+        userstats: function () {
+
+            let dat: IUserStat = {
+                balance : 0,
+                hashes : 0,
+                hashrate: "0",
+                paid: 0,
+                lastShare: 0
+            };
+
+            const stats =  this.user.userstats.stats;
+            if (stats){
+                dat.balance = stats.balance || 0;
+                dat.hashes = stats.hashes || 0;
+                dat.hashrate = stats.hashrate || "0";
+                dat.paid = stats.paid || 0;
+                dat.lastShare = stats.lastShare || 0;
+            }
+            return dat;
+        }
+    },
     methods : {
         showMe(){
-            return (this.user !== undefined && this.user !== null);
+            return (this.user !== undefined && this.user !== null && this.user.userstats !== null);
         },
         deleteAddress(ev: Event){
             ev.preventDefault();

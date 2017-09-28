@@ -24,12 +24,15 @@ const Home = Vue.extend({
         'pool': Pool
     },
     template: `
-        <div class="row">
-            <div class="col">
-                <network :stats="stats"></network>
-            </div>
-            <div class="col">
-                <pool :stats="stats"></pool>
+        <div>
+            <h1>Mining statistics</h1>
+            <div class="row">
+                <div class="col">
+                    <network :stats="stats"></network>
+                </div>
+                <div class="col">
+                    <pool :stats="stats"></pool>
+                </div>
             </div>
         </div>`,
     computed: Vuex.mapState({
