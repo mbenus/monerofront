@@ -64,7 +64,8 @@ const formatdata = {
             return this.basehashUrl + hash;
         },
         getBlockLink(hash : string){
-            return hash.substr(0, 13) + '...';
+            return hash.substr(0, 25) + '...';
+            //return hash.substr(0, 13) + '...';
         }
     }
 }

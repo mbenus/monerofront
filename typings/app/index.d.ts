@@ -1,8 +1,15 @@
 ﻿interface IAppState {
-    stats: any,
+    stats: Stats,
     live_stats: any;
     errorResponse : any,
     users: User[]
+}
+
+declare class Stats {
+    config: object;
+    network: object;
+    pool: object;
+    timestamp_received?: number;
 }
 
 interface IrequestParams{

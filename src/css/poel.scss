@@ -2,3 +2,21 @@
 @import "../../node_modules/bootstrap/scss/_functions.scss";
 @import "variables";
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
+
+
+.card {
+    .card-header{
+        h3{
+            display: inline-block;
+        }
+
+        span.refresh{
+            float: right;
+        }
+    }
+}
+
+span.button:hover {
+    color: $green;
+    cursor: pointer;
+}

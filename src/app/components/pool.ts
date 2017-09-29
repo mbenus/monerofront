@@ -22,42 +22,52 @@ declare module 'vue/types/vue' {
 const Pool = Vue.extend({
     mixins: [formatdata],
     template: `
-    <div class="pool" v-if="showMe()">
-        <h3>Our Pool</h3>
-        <div>
-            <i class="fa fa-tachometer"></i>
-            Hash Rate: 
-            <span>{{getReadableHashRateString(stats.pool.hashrate * 120)}}</span>
+    <div class="pool card" v-if="showMe()">
+        <div class="card-header">
+            <span><i class="fa fa-trophy" aria-hidden="true"></i></span>
+            <h3>Our Pool</h3> 
+            <span class="refresh button" v-on:click="refresh($event)"><i class="fa fa-refresh" aria-hidden="true"></i></span>
         </div>
-        <div>
-            <i class="fa fa-clock-o"></i>
-            Block Found:
-            <span>{{formatTimestamp(stats.pool.lastBlockFound)}}</span>
-        </div>
-        <div>
-            <i class="fa fa-users"></i>
-            Connected Miners:
-            <span>{{stats.pool.miners}}</span></div>
-        <div>
-            <i class="fa fa-gift"></i>
-            Donations:
-            <span>{{getFeeText()}}</span>
-        </div>
-        <div>
-            <i class="fa fa-money"></i>
-            Total Pool Fee:
-            <span>{{getTotalFee()}}</span>
-        </div>
-        <div>
-            <i class="fa fa-history"></i>
-            Block Found Every:
-            <span>{{getBlocksFound()}}</span> (est.)
+        <div class="card-body">
+            <div>
+                <i class="fa fa-tachometer"></i>
+                Hash Rate: 
+                <span>{{getReadableHashRateString(stats.pool.hashrate * 120)}}</span>
+            </div>
+            <div>
+                <i class="fa fa-clock-o"></i>
+                Block Found:
+                <span>{{formatTimestamp(stats.pool.lastBlockFound)}}</span>
+            </div>
+            <div>
+                <i class="fa fa-users"></i>
+                Connected Miners:
+                <span>{{stats.pool.miners}}</span></div>
+            <div>
+                <i class="fa fa-gift"></i>
+                Donations:
+                <span>{{getFeeText()}}</span>
+            </div>
+            <div>
+                <i class="fa fa-money"></i>
+                Total Pool Fee:
+                <span>{{getTotalFee()}}</span>
+            </div>
+            <div>
+                <i class="fa fa-history"></i>
+                Block Found Every:
+                <span>{{getBlocksFound()}}</span> (est.)
+            </div>
         </div>
     </div>`,
     props : ['stats'],
     methods : {
         showMe(){
             return (this.stats !== undefined && this.stats !== null);
+        },
+        refresh(ev: Event){
+            ev.preventDefault();
+            this.$emit('refresh');
         },
         getFeeText(){
             let feeText = [];

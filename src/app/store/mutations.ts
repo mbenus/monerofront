@@ -3,7 +3,10 @@
 export default {
     // STATS
     ["STATS"](state: IAppState, data: any) {
-        state.stats = data.stats;
+        const stats : Stats = data.stats;
+        // add some own data
+        stats.timestamp_received = Date.now();
+        state.stats = stats;
     },
     ["STATS_STARTED"](state: IAppState) {
     
