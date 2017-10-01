@@ -1,10 +1,11 @@
+import helper from './helper'
+
 const formatdata = {
     data() {
         return {
-            // zijn dit geen settings?
+            poolHost : "moneropoel.nl",
             coinUnits : 1000000000000,
             symbol: "XMR",
-            basehashUrl: 'https://chainradar.com/xmr/block/',
             transactionExplorer: "http://chainradar.com/xmr/transaction/",
             blockchainExplorer: "http://chainradar.com/xmr/block/"
         };
@@ -22,14 +23,7 @@ const formatdata = {
             return new Date(parseInt(time) * 1000).toLocaleString();
         },
         getReadableHashRateString(hashrate: number){
-            hashrate /= 120;
-            var i = 0;
-            var byteUnits = [' H', ' KH', ' MH', ' GH', ' TH', ' PH' ];
-            while (hashrate > 1000){
-                hashrate /=  1000;
-                i++;
-            }
-            return hashrate.toFixed(2) + byteUnits[i] + '/sec';
+            return helper.getReadableHashRateString(hashrate);
         },
         getReadableTime(seconds){
             
@@ -49,7 +43,7 @@ const formatdata = {
             }
             return this.formatAmounts(amount,  units[units.length - 1][1]);
         },
-         formatPaymentLink(hash){
+        formatPaymentLink(hash){
             return '<a target="_blank" href="' + this.transactionExplorer + hash + '">' + this.getBlockLink(hash) + '</a>';
         },
         formatAmounts(amount, unit){
@@ -61,12 +55,14 @@ const formatdata = {
             return amount + (withoutSymbol ? '' : (' ' + this.symbol));
         },
         getBlockHref(hash: string) {
-            return this.basehashUrl + hash;
+            return this.blockchainExplorer + hash;
         },
         getBlockLink(hash : string){
             return hash.substr(0, 25) + '...';
-            //return hash.substr(0, 13) + '...';
-        }
+        },
+        formatBlockLink(hash){
+            return '<a target="_blank" href="' + this.getBlockHref(hash) + '">' + this.getBlockLink(hash) + '</a>';
+        },
     }
 }
 

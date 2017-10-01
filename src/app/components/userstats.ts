@@ -20,65 +20,42 @@ const UserStats = Vue.extend({
     },
     mixins: [formatdata],
     template: `
-    <div class="userstats" v-if="showMe()">
-        <div>
-            <i class="fa fa-key"></i>
-            Address: 
-            <span>{{user.xmraddress}}</span>
-            <button class="btn btn-danger" type="button" v-on:click="deleteAddress($event)">
-                <span><i class="fa fa-trash"></i>Remove</span>
-            </button>
+    <div class="userstats alert alert-info" v-if="showMe()">
+        <div class="xmraddress">
+           {{user.xmraddress}}
+           <span class="button" v-on:click="deleteAddress($event)"><i class="fa fa-trash" aria-hidden="true"></i></span>
         </div>
-        <div>
-            <i class="fa fa-bank"></i> 
-            Pending Balance: 
-            <span>{{getReadableCoins(userstats.balance)}}</span>
+        <div class="xmrdetails">
+            <div>
+                <i class="fa fa-bank"></i> 
+                Te ontvangen: 
+                <span>{{getReadableCoins(user.userstats.stats.balance)}}</span>
+            </div>
+            <div>
+                <i class="fa fa-money"></i>
+                Uitbetaald:
+                <span>{{getReadableCoins(user.userstats.stats.paid)}} in {{user.userstats.payments.length}} betalingen</span>
+            </div>
+            <div>
+                <i class="fa fa-clock-o"></i>
+                Laatste bijdrage: 
+                <span>{{formatTimestamp(user.userstats.stats.lastShare)}}</span>
+            </div>
+            <div>
+                <i class="fa fa-tachometer"></i> 
+                Hash Rate: 
+                <span>{{displayHashrate(user.userstats.stats.hashrate)}}</span>
+            </div>
+            <div>
+                <i class="fa fa-cloud-upload"></i> 
+                Aantal hashes: 
+                <span>{{user.userstats.stats.hashes}}</span>
+            </div>
+          
         </div>
-        <div>
-            <i class="fa fa-money"></i>
-            Total Paid:
-            <span>{{getReadableCoins(userstats.paid)}}</span>
-        </div>
-        <div>
-            <i class="fa fa-clock-o"></i>
-            Last Share Submitted: 
-            <span>{{formatTimestamp(userstats.lastShare)}}</span>
-        </div>
-        <div>
-            <i class="fa fa-tachometer"></i> 
-            Hash Rate: 
-            <span>{{displayHashrate(userstats.hashrate)}}</span>
-        </div>
-        <div>
-            <i class="fa fa-cloud-upload"></i> 
-            Total Hashes Submitted: 
-            <span>{{userstats.hashes}}</span>
-        </div>
-        <payments :rawpayments2="user.userstats.payments"></payments>
+        <!--<payments :rawpayments2="user.userstats.payments"></payments>-->
     </div>`,
     props : ['user'],
-    computed: {
-        userstats: function () {
-
-            let dat: IUserStat = {
-                balance : 0,
-                hashes : 0,
-                hashrate: "0",
-                paid: 0,
-                lastShare: 0
-            };
-
-            const stats =  this.user.userstats.stats;
-            if (stats){
-                dat.balance = stats.balance || 0;
-                dat.hashes = stats.hashes || 0;
-                dat.hashrate = stats.hashrate || "0";
-                dat.paid = stats.paid || 0;
-                dat.lastShare = stats.lastShare || 0;
-            }
-            return dat;
-        }
-    },
     methods : {
         showMe(){
             return (this.user !== undefined && this.user !== null && this.user.userstats !== null);

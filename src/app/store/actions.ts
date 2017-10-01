@@ -35,7 +35,12 @@ var getdata = function(commit, url: string, mutation: string, forceRefresh?: Boo
             // the store knows what was asked and received
             let p = (params)?params:{};   
             p[mutation.toLowerCase()] = response;
-            commit(mutation, p);
+
+            if (response.error){
+                commit(mutation + '_FAIL', p);
+            } else{
+                commit(mutation, p);
+            }
         } else {
             // no data received?
             commit(mutation + '_NORESPONSE', response);

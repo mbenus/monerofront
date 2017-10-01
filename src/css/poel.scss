@@ -9,14 +9,33 @@
         h3{
             display: inline-block;
         }
-
-        span.refresh{
-            float: right;
-        }
     }
+}
+
+span.button {
+    float: right;
 }
 
 span.button:hover {
     color: $green;
     cursor: pointer;
+}
+
+.xmrdetails {
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+
+.searchmoneroaddress{
+    margin-bottom: 30px;
+}
+
+button{
+    cursor: pointer;
+}
+
+.mineexample{
+    color:red;
+    font-size: small;
+    padding: 30x;
 }

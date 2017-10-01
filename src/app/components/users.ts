@@ -21,23 +21,29 @@ const Users = Vue.extend({
         'userstats': UserStats
     },
     template: `
-    <div class="users">
-        <div class="input-group">
-            <input class="form-control" type="text" placeholder="Enter Your Address" id="txtAddress">
-            <span class="input-group-btn">
-                <button class="btn btn-default" type="button" v-on:click="lookupAddress($event)">
-                    <span><i class="fa fa-search"></i>Lookup</span>
-                    <span style="display: none;"><i class="fa fa-refresh fa-spin"></i> Searching...</span>
-                </button>
-            </span>
+    <div class="user card"">
+        <div class="card-header">
+            <span><i class="fa fa-user-circle" aria-hidden="true"></i></span>
+            <h3>Gebruikers statistieken</h3> 
         </div>
-        <div v-if="showMe()">
-            <userstats 
-                v-for="user in users" 
-                :user="user" 
-                :key="user.xmraddress"
-                v-on:deleteUserData="deleteUserData"
-            ></userstats>
+        <div class="card-body">
+            <div class="input-group">
+                <input class="form-control" type="text" placeholder="Monero adres">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" v-on:click="lookupAddress($event)">
+                        <span><i class="fa fa-search"></i>Lookup</span>
+                        <span style="display: none;"><i class="fa fa-refresh fa-spin"></i> Zoeken...</span>
+                    </button>
+                </span>
+            </div>
+            <div v-if="showMe()">
+                <userstats 
+                    v-for="user in users" 
+                    :user="user" 
+                    :key="user.xmraddress"
+                    v-on:deleteUserData="deleteUserData"
+                ></userstats>
+            </div>
         </div>
     </div>`,
     props : ['users'],

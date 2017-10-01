@@ -48,6 +48,20 @@ declare class Payment {
     mixin: number;
     recipients: string; //?????
 }
+
+declare class Block {
+    height: number;
+    hash: string;
+    time: number;
+    difficulty: number;
+    shares: number;
+    orphaned: number;
+    reward: number;
+    maturity?: string;
+    status?: string;
+}
+
+
 //
 // import {LoDashStatic} from "../../node_modules/@types/lodash/index"
 // declare var _: LoDashStatic;

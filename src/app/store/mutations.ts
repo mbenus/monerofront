@@ -1,5 +1,26 @@
 ﻿import _ from "lodash";
 
+var init_userstats = function(stats: IUserStat){
+    // the api doest return all posible fields when that data isnt available.
+    // Initialize this data with 0
+    let dat: IUserStat = {
+        balance : 0,
+        hashes : 0,
+        hashrate: "0",
+        paid: 0,
+        lastShare: 0
+    };
+
+    if (stats){
+        dat.balance = stats.balance || 0;
+        dat.hashes = stats.hashes || 0;
+        dat.hashrate = stats.hashrate || "0";
+        dat.paid = stats.paid || 0;
+        dat.lastShare = stats.lastShare || 0;
+    }
+    return dat;
+};
+
 export default {
     // STATS
     ["STATS"](state: IAppState, data: any) {
@@ -41,6 +62,9 @@ export default {
 
         let userstats: IUserStats = params.userdata,
             xmraddress: string = params.xmraddress;
+
+        // initialize data that wasnt returned by the backend
+        userstats.stats = init_userstats(userstats.stats);
         
         let users = (state.users === null || state.users === undefined)?[]:_.clone(state.users);
         

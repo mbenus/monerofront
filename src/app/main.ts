@@ -1,9 +1,12 @@
 ﻿import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Vuex from 'vuex'
-import Home from "./components/home"
-import About from "./components/about"
-import Statistics from "./components/statistics"
+import Home from "./pages/home"
+import Netwerk from "./pages/netwerk"
+import Poel from "./pages/poel"
+import About from "./pages/about"
+import Gebruiker from "./pages/gebruiker"
+import GettingStarted from "./pages/gettingstarted"
 
 import storeoptions from "./store/options"
 
@@ -19,8 +22,11 @@ var store = new Vuex.Store(storeoptions);
 const routes = [
     { path: "/", component: Home },
     { path: "/home", component: Home },
+    { path: "/netwerk", component: Netwerk },
+    { path: "/poel", component: Poel },
     { path: "/about", component: About },
-    { path: "/balance", component: Statistics },
+    { path: "/gebruiker", component: Gebruiker },
+    { path: "/gettingstarted", component: GettingStarted },
 ];
 
 const routerconfig = {
