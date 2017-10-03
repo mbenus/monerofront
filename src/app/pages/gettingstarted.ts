@@ -26,6 +26,10 @@ const GettingStarted = Vue.extend({
                 Het adres van de portemonnee (een lange hash/tekenreeks) moet je vervolgens gebruiken in de configuratie van de mining-software zodat Moneropoel.nl je hierop kan uitbetalen.
             </p>
 
+            <p> 
+                Wil je niet zelf een wallet op je pc aanmaken, dan kan dat ook online zoals bij <a href="https://mymonero.com/">mymonero</a>
+            </p>
+
             <h3>Aanmaken Portemonnee/Wallet</h3>
             <ul>
                 <li><a target="_blank" href="http://monero.cc/getting-started/">Getting started with Monero</a></li>
