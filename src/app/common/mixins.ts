@@ -1,4 +1,5 @@
-import helper from './helper'
+import helper from './helper';
+import moment from "moment";
 
 const formatdata = {
     data() {
@@ -15,8 +16,9 @@ const formatdata = {
             if (timestamp === undefined || timestamp === null){
                 return 'Never';
             }
-            var date = new Date(timestamp * 1000).toISOString();
-            return $.timeago(date);
+            var date = new Date(timestamp * 1000);//.toISOString();
+            //return $.timeago(date);
+            return moment(date, 'YYYYMMDD').fromNow();
         },
         formatDate(time){
             if (!time) return '';
@@ -29,11 +31,6 @@ const formatdata = {
             
             var units = [ [60, 'second'], [60, 'minute'], [24, 'hour'],
                 [7, 'day'], [4, 'week'], [12, 'month'], [1, 'year'] ];
-    
-            function formatAmounts(amount, unit){
-                var rounded = Math.round(amount);
-                return '' + rounded + ' ' + unit + (rounded > 1 ? 's' : '');
-            }
     
             var amount = seconds;
             for (var i = 0; i < units.length; i++){

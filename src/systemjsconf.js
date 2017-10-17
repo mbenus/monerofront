@@ -9,7 +9,8 @@ System.config({
         "vue": "../node_modules/vue/dist/vue.js",
         "vuex": "../node_modules/vuex/dist/vuex.min.js",
         "vue-router": "../node_modules/vue-router/dist/vue-router.min.js",
-        "vuex-persistedstate": "../node_modules/vuex-persistedstate/dist/vuex-persistedstate.min.js"
+        "vuex-persistedstate": "../node_modules/vuex-persistedstate/dist/vuex-persistedstate.min.js",
+        "moment": "../node_modules/moment/min/moment-with-locales.min.js"
     },
     packages: {
         'app': {

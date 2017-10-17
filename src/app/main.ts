@@ -11,9 +11,9 @@ import Help from "./pages/help"
 
 import storeoptions from "./store/options"
 
-// globals
-// import find from "lodash.find";
-// import clone from "lodash.clone";
+import moment from "moment"
+moment.locale('nl');  
+
 
 Vue.use(VueRouter);
 Vue.use(Vuex);

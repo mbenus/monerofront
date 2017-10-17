@@ -42,7 +42,7 @@ const Pool = Vue.extend({
             <div>
                 <i class="fa fa-clock-o"></i>
                 Block Gevonden:
-                <span>{{formatTimestamp(stats.pool.lastBlockFound)}}</span>
+                <span>{{formatTimestamp(stats.pool.lastBlockFound / 1000)}}</span>
             </div>
             <div>
                 <i class="fa fa-users"></i>
