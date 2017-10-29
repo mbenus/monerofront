@@ -38,6 +38,23 @@ module.exports = function (grunt) {
                 src: 'dest/css/*.css'
             }
         },
+        'string-replace': {
+          inline: {
+            files: {
+              'dest/index.html': 'dest/index.html',
+              'dest/systemjsconf.js': 'dest/systemjsconf.js'
+            },
+            options: {
+              replacements: [
+                // place files inline example 
+                {
+                   pattern: /..\/node_modules\//ig,
+                   replacement: 'node_modules/'               
+                }
+              ]
+            }
+          }
+        },
         htmlmin: {                                     // Task
             dest: {                                      // Target
               options: {                                 // Target options
@@ -67,7 +84,8 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-sass');
     grunt.loadNpmTasks('grunt-postcss');
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
+    grunt.loadNpmTasks('grunt-string-replace');
 
     // register at least this one task
-    grunt.registerTask('default', [ 'uglify', 'sass', 'postcss', 'htmlmin' ]);
+    grunt.registerTask('default', [ 'uglify', 'sass', 'postcss', 'htmlmin', 'string-replace' ]);
 };
