@@ -29,6 +29,7 @@ const Gebruiker = Vue.extend({
             <span><i class="fa fa-user-circle fa-2x" aria-hidden="true"></i></span>
         </div>
         <div class="card-body">
+            <h5>Vul hier je Monero-adres(sen) in om live je mining-statistieken te bekijken</h5>
             <div class="input-group searchmoneroaddress">
                 <input class="form-control" type="text" placeholder="Monero adres" id="txtAddress">
                 <span class="input-group-btn">
@@ -38,6 +39,7 @@ const Gebruiker = Vue.extend({
                     </button>
                 </span>
             </div>
+            <h5>Te ontvangen Monero wordt berekend wanneer een block is gemined</h5>
             <userabbr 
                 :users="users"
                 v-on:refreshall="refreshUserData"
