@@ -4,13 +4,15 @@
   "repository": "git://github.com/mbenus/monerofront.git",
   "version": "1.0.0",
   "dependencies": {
-    "bootstrap": "^4.0.0-beta",
+    "bootstrap": "^4.0.0-beta.2",
+    "d3": "^3.5.17",
     "font-awesome": "^4.7.0",
     "jquery": "^3.2.1",
-    "lodash": "^4.9.0",
+    "lodash": "^4.17.4",
     "lodash.clone": "^4.5.0",
     "lodash.find": "^4.6.0",
     "moment": "^2.19.1",
+    "nvd3": "^1.8.6",
     "object-path": "^0.11.4",
     "popper.js": "^1.12.6",
     "promise-polyfill": "6.0.2",
@@ -21,7 +23,8 @@
     "vuex-persistedstate": "^2.0.0"
   },
   "scripts": {
-    "build": "grunt",
+    "build": "grunt default",
+    "deploy": "grunt deploy",
     "start": "hrs .",
     "watch": "grunt watch"
   },

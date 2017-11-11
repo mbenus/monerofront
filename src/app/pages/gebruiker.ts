@@ -40,6 +40,7 @@ const Gebruiker = Vue.extend({
                 </span>
             </div>
             <h5>Te ontvangen Monero wordt berekend wanneer een block is gemined</h5>
+            <div>Per block die we minen ontvangen we iets meer dan 6 Monero<br/>Deze zal binnen 24u worden verdeeld over de miners op basis van zijn/haar hashrate</div>
             <userabbr 
                 :users="users"
                 v-on:refreshall="refreshUserData"

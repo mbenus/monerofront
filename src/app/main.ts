@@ -7,7 +7,7 @@ import Poel from "./pages/poel"
 import About from "./pages/about"
 import Gebruiker from "./pages/gebruiker"
 import GettingStarted from "./pages/gettingstarted"
-import Help from "./pages/help"
+import Koers from "./pages/koers"
 
 import storeoptions from "./store/options"
 
@@ -28,7 +28,7 @@ const routes = [
     { path: "/about", component: About },
     { path: "/gebruiker", component: Gebruiker },
     { path: "/gettingstarted", component: GettingStarted },
-    { path: "/help", component: Help },
+    { path: "/koers", component: Koers }
 ];
 
 const routerconfig = {

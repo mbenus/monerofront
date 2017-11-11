@@ -22,6 +22,12 @@ const About = Vue.extend({
                 <p>
                     De poel is echter 100% functioneel!!
                 </p>
+                <h3>Help</h3>
+                <p>Bij vragen of problemen, mail dan naar <a id="emailLink" href="mailto:support@moneropoel.nl">support@moneropoel.nl</a></p>
+                <div>
+                    <h3>Chat Room</h3>
+                    <iframe id="kiwi_irc" style="border:0; width:100%; height:500px;" src="https://kiwiirc.com/client/irc.freenode.net/#monero-pools"></iframe>
+                </div>
             </div>
         </div>`,
     created : function(){

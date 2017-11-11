@@ -2,7 +2,8 @@
     stats: Stats,
     live_stats: any;
     errorResponse : any,
-    users: User[]
+    users: User[],
+    priceData: IMoneroPriceState
 }
 
 declare class Stats {
@@ -10,6 +11,27 @@ declare class Stats {
     network: object;
     pool: object;
     timestamp_received?: number;
+}
+
+interface IMoneroPriceState{
+    loading: Boolean,
+    data: ITimeSerie[]
+}
+
+interface IMoneroPrice {
+    "base": String;
+    "price": Number;
+    "changed": Number;
+    "target": String;
+    "created": Number;
+    "volume": Number;
+    "id": Number;
+    "timestamp": Number;
+}
+
+interface ITimeSerie{
+    "x": Number;
+    "y": Number;
 }
 
 interface IrequestParams{

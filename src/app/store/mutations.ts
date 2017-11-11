@@ -106,5 +106,20 @@ export default {
     },
     ["USERDATA_FAIL"](state: IAppState, response: any) {
         
-    }
+    },
+    ["PRICES"](state: IAppState, priceData: any) {
+        state.priceData.data = priceData.prices;
+    },
+    ["PRICES_STARTED"](state: IAppState) {
+        state.priceData.loading = true;
+    },
+    ["PRICES_FINISHED"](state: IAppState) {
+        state.priceData.loading = false;
+    },
+    ["PRICES_NORESPONSE"](state: IAppState) {
+        state.priceData.data = null;
+    },
+    ["PRICES_FAIL"](state: IAppState, response: any) {
+        state.errorResponse = response;
+    },
 }

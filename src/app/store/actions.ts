@@ -43,7 +43,7 @@ var getdata = function(commit, url: string, mutation: string, forceRefresh?: Boo
             }
         } else {
             // no data received?
-            commit(mutation + '_NORESPONSE', response);
+            commit(mutation + '_NORESPONSE');
         }
     })
     .fail(response => {
@@ -59,6 +59,10 @@ var getdata = function(commit, url: string, mutation: string, forceRefresh?: Boo
 }
 
 export default {
+    getPriceData({ commit }, params) {
+        const url = `${baseUrl}/api/prices/eur`;
+        getdata(commit, url, 'PRICES', (params && params.force));
+    },
     getStats({ commit }, params) {
         const url = `${baseUrl}/stats`;
         getdata(commit, url, 'STATS', (params && params.force));

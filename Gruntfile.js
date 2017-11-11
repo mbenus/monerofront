@@ -86,6 +86,9 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
     grunt.loadNpmTasks('grunt-string-replace');
 
-    // register at least this one task
-    grunt.registerTask('default', [ 'uglify', 'sass', 'postcss', 'htmlmin', 'string-replace' ]);
+    // test build files locally
+    grunt.registerTask('default', [ 'uglify', 'sass', 'postcss', 'htmlmin']);
+    
+     // build files as they should be on the server
+    grunt.registerTask('deploy', [ 'default', 'string-replace' ]);
 };
