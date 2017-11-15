@@ -21,8 +21,7 @@ const Network = Vue.extend({
     <div class="network card" v-if="showMe()">
         <div class="card-header">
             <h3>Monero Netwerk</h3> 
-            <span><i class="fa fa-object-group fa-2x" aria-hidden="true"></i></span>
-            <span class="refresh button" v-on:click="refresh($event)"><i class="fa fa-refresh" aria-hidden="true"></i></span>
+            <span class="refresh button" v-on:click="refresh($event)"><i class="fa fa-object-group fa-2x" aria-hidden="true"></i></span>
         </div>
         <div class="card-body">
             <div>

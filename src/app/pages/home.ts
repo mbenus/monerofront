@@ -16,8 +16,9 @@ const Home = Vue.extend({
     template: `
         <div class="card" v-if="showMe()">
             <div class="card-header">
-                <h2>Welkom bij moneropoel.nl</h2>
-              </div>
+                <h3>Welkom bij moneropoel.nl</h3>
+                <span><i class="fa fa-home fa-2x" aria-hidden="true"></i></span>
+            </div>
             <div class="card-body">
                 <p>
                    <h3>Delven met Hollanders <i class="fa fa-smile-o" aria-hidden="true"></i></h3>

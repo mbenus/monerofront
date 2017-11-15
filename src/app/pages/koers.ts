@@ -22,14 +22,27 @@ declare module 'vue/types/vue' {
 
 const Koers = Vue.extend({
     template: `
-        <div>
-           <h1>Prijs Monero</h1>
-           <div class="svg-container" id="moneroprijs">
+    <div class="koers card"">
+        <div class="card-header">
+            <h3>Prijs Monero 
+                <span v-if="latestRecord">€{{formatNumber(latestRecord.y)}}</span>
+            </h3>
+            <span v-if="latestRecord">({{formatDate(latestRecord.x)}})</span>
+            <span><i class="fa fa-line-chart fa-2x" aria-hidden="true"></i></span>
+        </div>  
+        <div class="card-body">
+            <div class="svg-container" id="moneroprijs">
                 <svg></svg>
             </div>
-        </div>`,
+        </div>
+    </div>`,
     computed: Vuex.mapState({
-        priceData: state => (<IAppState>state).priceData
+        priceData: state => (<IAppState>state).priceData,
+        latestRecord(state: IAppState){
+            if (state.priceData && state.priceData.data && state.priceData.data.length){
+                return state.priceData.data[state.priceData.data.length -1];
+            }
+        }
     }),
     created(){
         this.refreshPriceData();
@@ -45,6 +58,15 @@ const Koers = Vue.extend({
     methods : {
         refreshPriceData(){
             this.$store.dispatch('getPriceData');
+        },
+        formatDate(timestamp){
+            if (!timestamp){
+                return '';
+            }
+            return moment(new Date(timestamp*1000)).format('D MMM YYYY HH:mm');
+        },
+        formatNumber(nr: Number){
+            return nr.toFixed(2);
         },
         drawChart(){
             const data = this.priceData.data;

@@ -30,8 +30,7 @@ const Pool = Vue.extend({
     <div class="pool card" v-if="showMe()">
         <div class="card-header">
             <h3>Moneropoel.nl</h3>
-            <span><i class="fa fa-trophy fa-2x" aria-hidden="true"></i></span>
-            <span class="refresh button" v-on:click="refresh($event)"><i class="fa fa-refresh" aria-hidden="true"></i></span>
+            <span class="refresh button" v-on:click="refresh($event)"><i class="fa fa-trophy fa-2x" aria-hidden="true"></i></span>
         </div>
         <div class="card-body">
             <div>
