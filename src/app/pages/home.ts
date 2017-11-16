@@ -36,7 +36,7 @@ const Home = Vue.extend({
                     <ul>
                         <li><a href="https://changelly.com/?ref_id=36798e2090b2">Changelly</a></li>
 
-                    </ul
+                    </ul>
                 </p>
             </div>
         </div>`,
