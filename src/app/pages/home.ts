@@ -23,14 +23,20 @@ const Home = Vue.extend({
                 <p>
                    <h3>Delven met Hollanders <i class="fa fa-smile-o" aria-hidden="true"></i></h3>
                 </p>
-                <img src="../img/logo.png" class="" alt="logo"/>
                 <p>
-                    </br>
-                    De totale fee voor de miningpoel is {{getTotalFee()}}%.<br/>
-                    Wanneer de hostinkosten eruit zijn, wordt een deel geschonken aan een goed doel.
+                    De totale fee voor de poel is {{getTotalFee()}}%.<br/>
+                    Wanneer de hostingkosten eruit zijn, wordt de winst geschonken aan een goed doel.<br/>
+                    Registreren is niet nodig<br/><br/>
+                    Ons eerste goede doel is de <a href="https://www.hersenstichting.nl/">hersenstichting</a>.<br/>
+                    Je hoeft natuurlijk niet monero te minen om mee te werken aan een goed doel. <br/>
+                    Rechtstreeks <a href="https://www.hersenstichting.nl/doneer-nu/doneren">doneren</a> kan ook!
                 </p>
                 <p>
-                    Registreren is niet nodig
+                    Wil je je monero omzetten naar een andere munt, dan adviseren wij:
+                    <ul>
+                        <li><a href="https://changelly.com/?ref_id=36798e2090b2">Changelly</a></li>
+
+                    </ul
                 </p>
             </div>
         </div>`,
