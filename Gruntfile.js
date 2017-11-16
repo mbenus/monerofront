@@ -50,6 +50,10 @@ module.exports = function (grunt) {
                 {
                    pattern: /..\/node_modules\//ig,
                    replacement: 'node_modules/'               
+                },
+                {
+                   pattern: /..\/img\//ig,
+                   replacement: 'img/'               
                 }
               ]
             }
