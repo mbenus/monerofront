@@ -26,12 +26,12 @@ const PoolBlocks = Vue.extend({
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th><i class="fa fa-bars"></i> Height</th>
-                            <th title="How many more blocks network must mine before this block is matured"><i class="fa fa-link"></i> Maturity</th>
-                            <th><i class="fa fa-unlock-alt"></i> Difficulty</th>
+                            <th><i class="fa fa-bars"></i> Hoogte</th>
+                            <th title="Aantal blocks dat moet worden gemined voordat dit block geldig is"><i class="fa fa-link"></i> Geldig</th>
+                            <th><i class="fa fa-unlock-alt"></i> Moeilijkheid</th>
                             <th><i class="fa fa-paw"></i> Block Hash</th>
-                            <th><i class="fa fa-clock-o"></i> Time Found</th>
-                            <th><i class="fa fa-star-half-o"></i> Luck</th>
+                            <th><i class="fa fa-clock-o"></i> Gevonden</th>
+                            <th><i class="fa fa-star-half-o"></i> Geluk</th>
                         </tr>
                     </thead>
                     <tbody>

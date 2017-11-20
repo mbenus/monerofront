@@ -1,3 +1,5 @@
+import moment from "moment";
+
 export default {
     getReadableHashRateString(hashrate: number){
         hashrate /= 120;
@@ -8,5 +10,11 @@ export default {
             i++;
         }
         return hashrate.toFixed(2) + byteUnits[i] + '/sec';
+    },
+    printDateTime(timestamp: number){
+        if (timestamp === undefined || timestamp === null){
+            return '';
+        }
+        return moment(timestamp).format('dddd DD MMMM YYYY, HH:mm:ss');
     }
 }

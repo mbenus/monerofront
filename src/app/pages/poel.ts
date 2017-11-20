@@ -4,6 +4,8 @@ import VueRouter from 'vue-router'
 
 import Pool from "./../components/pool"
 
+import helper from './../common/helper';
+
 declare module 'vue/types/vue' {
     // Declare augmentation for Vue
     interface Vue {
@@ -27,7 +29,7 @@ const Poel = Vue.extend({
                 v-on:refresh="refreshStats"
             ></poel>
             <div class="alert alert-success" role="alert" v-if="stats.timestamp_received">
-                Laatst bijgewerkt op:
+                Pagina bijgewerkt op:
                 {{getLastUpdate()}}
             </div>
         </div>`,
@@ -47,8 +49,7 @@ const Poel = Vue.extend({
             this.$store.dispatch('getStats');
         },
         getLastUpdate(){
-            var d = new Date(this.stats.timestamp_received);
-            return d.toDateString() + ', ' + d.toLocaleTimeString();
+            return helper.printDateTime(this.stats.timestamp_received);
         }
     }
 });
