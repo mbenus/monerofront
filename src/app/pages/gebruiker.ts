@@ -39,7 +39,7 @@ const Gebruiker = Vue.extend({
                     </button>
                 </span>
             </div>
-            <h5>Te ontvangen Monero wordt berekend wanneer een block is gemined</h5>
+            <h5 class="blink_me">Te ontvangen Monero wordt opnieuw berekend wanneer de poel een block mined!</h5>
             <div>Per block die we minen ontvangen we iets meer dan 6 Monero<br/>Deze zal zsm worden verdeeld over de miners op basis van zijn/haar hashrate</div>
             <userabbr 
                 :users="users"
